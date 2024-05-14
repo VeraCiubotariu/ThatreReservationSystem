@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.OrderCompleteView">
+   <children>
+      <ImageView fitHeight="146.0" fitWidth="356.0" layoutX="45.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/order_complete.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="78.0" layoutY="265.0" prefHeight="31.0" prefWidth="306.0" text="Thank you for choosing us!" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="130.0" layoutY="289.0" prefHeight="71.0" prefWidth="206.0" text="The ticket will be sent to you via email and SMS." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Franklin Gothic Book" size="16.0" />
+         </font>
+      </Label>
+       <Button layoutX="133.0" layoutY="454.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="190.0" style="-fx-background-color: #a1150b;" text="Exit" textFill="WHITE">
+           <font>
+               <Font name="Franklin Gothic Demi Cond" size="18.0" />
+           </font>
+       </Button>
+   </children>
+</AnchorPane>

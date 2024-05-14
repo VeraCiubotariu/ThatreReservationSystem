@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.CashPaymentView">
+   <children>
+      <ImageView fitHeight="156.0" fitWidth="394.0" layoutX="32.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cash_payment.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="88.0" layoutY="352.0" prefHeight="54.0" prefWidth="290.0" text="36 euro" textAlignment="CENTER" textFill="#a1150b">
+         <font>
+            <Font name="Franklin Gothic Heavy" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.AdminLoginView">
+   <children>
+      <ImageView fitHeight="195.0" fitWidth="450.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/360_F_229760888_xNSsDETvN5dlWHA2TubbXOuI5nKz6cQu.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="137.0" fitWidth="314.0" layoutX="69.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/admin_login.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="190.0" layoutY="335.0" prefHeight="19.0" prefWidth="76.0" text="Username" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="123.0" layoutY="368.0" prefHeight="26.0" prefWidth="206.0" />
+      <Label layoutX="190.0" layoutY="410.0" prefHeight="19.0" prefWidth="76.0" text="Password" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="16.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="123.0" layoutY="445.0" prefHeight="26.0" prefWidth="206.0" />
+       <Button layoutX="40.0" layoutY="560.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
+           <font>
+               <Font name="Franklin Gothic Demi Cond" size="18.0" />
+           </font>
+       </Button>
+       <Button layoutX="262.0" layoutY="560.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" style="-fx-background-color: #a1150b;" text="Login" textFill="WHITE">
+           <font>
+               <Font name="Franklin Gothic Demi Cond" size="18.0" />
+           </font>
+       </Button>
+   </children>
+</AnchorPane>

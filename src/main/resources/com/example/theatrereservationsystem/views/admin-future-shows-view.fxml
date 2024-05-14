@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.AdminFutureShowsView">
+   <children>
+      <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/future_shows.png" />
+         </image>
+      </ImageView>
+
+      <ScrollPane layoutX="32.0" layoutY="140.0" prefHeight="424.0" prefWidth="139.0" style="-fx-background-color: black;">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+            <GridPane alignment="CENTER" prefHeight="451.0" prefWidth="123.0" style="-fx-alignment: center;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="180.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../a2ct_19890301-amadeus.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../images/143678.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../images/143890.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+
+      <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="18.0" />
+         </font>
+      </Button>
+      <GridPane layoutX="189.0" layoutY="139.0" prefHeight="424.0" prefWidth="238.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="75.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.00001525878906" minWidth="10.0" prefWidth="163.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="39.6" minHeight="10.0" prefHeight="30.6" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="70.4" minHeight="10.0" prefHeight="24.6" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="92.4" minHeight="10.0" prefHeight="30.40000000000002" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="99.4" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="94.60000000000002" minHeight="10.0" prefHeight="33.19999999999999" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="112.60000000000002" minHeight="10.0" prefHeight="34.20000000000002" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="118.19999999999999" minHeight="10.0" prefHeight="75.80000000000001" vgrow="SOMETIMES" />
+           <RowConstraints maxHeight="164.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Name" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <TextField GridPane.columnIndex="1" />
+            <Label text="Date" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Time" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Duration (in minutes)" textFill="WHITE" wrapText="true" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Poster" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Genre" textFill="WHITE" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Director" textFill="WHITE" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Actors" textFill="WHITE" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Description" textFill="WHITE" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Franklin Gothic Demi" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Spinner GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" text="Upload Image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextArea prefHeight="59.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextArea prefHeight="92.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         </children>
+      </GridPane>
+      <Button layoutX="171.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="261.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Modify" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="351.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="40.0" layoutY="97.0" text="Time Frame" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="133.0" layoutY="92.0" prefWidth="150.0" />
+
+      <Button layoutX="326.0" layoutY="92.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #a1150b;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

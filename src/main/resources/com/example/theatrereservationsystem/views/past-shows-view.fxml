@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.PastShowsView">
+   <children>
+       <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="75.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../images/past_shows.png" />
+           </image>
+       </ImageView>
+      <TableView layoutX="36.0" layoutY="211.0" prefHeight="282.0" prefWidth="374.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Show Name" />
+          <TableColumn prefWidth="75.0" text="Date" />
+            <TableColumn prefWidth="75.0" text="Time" />
+            <TableColumn prefWidth="75.0" text="Genre" />
+            <TableColumn prefWidth="75.0" text="Sold Tickets" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="39.0" layoutY="153.0" text="Time Frame" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="131.0" layoutY="148.0" prefWidth="150.0" />
+      <Label layoutX="36.0" layoutY="529.0" text="Sold tickets total:" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="152.0" layoutY="529.0" prefHeight="16.0" prefWidth="183.0" text="0" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="268.0" layoutX="137.0" layoutY="516.0" startX="-100.0" stroke="WHITE" />
+       <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
+           <font>
+               <Font name="Franklin Gothic Demi Cond" size="18.0" />
+           </font>
+       </Button>
+       <Button layoutX="311.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #a1150b;" text="Search" textFill="WHITE">
+           <font>
+               <Font name="Franklin Gothic Demi Cond" size="14.0" />
+           </font>
+       </Button>
+   </children>
+</AnchorPane>

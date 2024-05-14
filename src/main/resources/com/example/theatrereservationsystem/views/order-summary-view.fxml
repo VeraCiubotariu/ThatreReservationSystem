@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.OrderSummaryView">
+<children>
+    <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="75.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../images/order_summary.png" />
+        </image>
+    </ImageView>
+    <Line endX="230.60000610351562" layoutX="173.0" layoutY="170.0" startX="-127.4000015258789" stroke="WHITE" />
+    <Line endX="230.60000610351562" layoutX="173.0" layoutY="205.0" startX="-127.4000015258789" stroke="WHITE" />
+    <Label layoutX="61.0" layoutY="177.0" text="Show" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+        </font>
+    </Label>
+    <Label layoutX="164.0" layoutY="178.0" prefHeight="16.0" prefWidth="238.0" text="Sweetheart, let's see if the rose" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+        </font></Label>
+    <Line endX="230.60000610351562" layoutX="173.0" layoutY="240.0" startX="-127.4000015258789" stroke="WHITE" />
+    <Label layoutX="61.0" layoutY="215.0" text="Date" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+        </font>
+    </Label>
+    <Label layoutX="164.0" layoutY="215.0" prefHeight="16.0" prefWidth="238.0" text="18 february 2024" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+        </font>
+    </Label>
+    <Line endX="230.60000610351562" layoutX="173.0" layoutY="275.0" startX="-127.4000015258789" stroke="WHITE" />
+    <Label layoutX="61.0" layoutY="249.0" text="Time" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+        </font>
+    </Label>
+    <Label layoutX="164.0" layoutY="249.0" prefHeight="16.0" prefWidth="238.0" text="20:00" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+        </font>
+    </Label>
+    <Line endX="230.60000610351562" layoutX="173.0" layoutY="500.0" startX="-127.4000015258789" stroke="WHITE" />
+    <Label alignment="TOP_LEFT" layoutX="61.0" layoutY="284.0" prefHeight="84.0" prefWidth="78.0" text="Seats to Reserve" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+        </font>
+    </Label>
+    <Label alignment="TOP_LEFT" layoutX="164.0" layoutY="284.0" prefHeight="206.0" prefWidth="238.0" text="A2 - 12 euro&#13;D6 - 12 euro&#13;E5 - 12 euro" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+        </font>
+    </Label>
+      <Label layoutX="61.0" layoutY="510.0" text="Total Price" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="164.0" layoutY="510.0" prefHeight="16.0" prefWidth="238.0" text="36 euro" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font>
+      </Label>
+    <Button layoutX="40.0" layoutY="560.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Previous" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Demi Cond" size="18.0" />
+        </font>
+    </Button>
+    <Button layoutX="262.0" layoutY="560.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" style="-fx-background-color: #a1150b;" text="Next  &gt;" textFill="WHITE">
+        <font>
+            <Font name="Franklin Gothic Demi Cond" size="18.0" />
+        </font>
+    </Button>
+</children>
+</AnchorPane>

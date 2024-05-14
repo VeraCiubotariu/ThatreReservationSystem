@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.gui.ShowInformationController">
+   <children>
+      <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="75.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/show_information.png" />
+         </image>
+      </ImageView>
+      <Line endX="230.60000610351562" layoutX="173.0" layoutY="170.0" startX="-127.4000015258789" stroke="WHITE" />
+      <Line endX="230.60000610351562" layoutX="173.0" layoutY="205.0" startX="-127.4000015258789" stroke="WHITE" />
+      <Label layoutX="61.0" layoutY="177.0" text="Name" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="164.0" layoutY="178.0" prefHeight="16.0" prefWidth="238.0" text="Sweetheart, let's see if the rose" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font></Label>
+      <Line endX="230.60000610351562" layoutX="173.0" layoutY="240.0" startX="-127.4000015258789" stroke="WHITE" />
+      <Label layoutX="61.0" layoutY="215.0" text="Genre" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="genreLabel" layoutX="164.0" layoutY="215.0" prefHeight="16.0" prefWidth="238.0" text="Drama" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="230.60000610351562" layoutX="173.0" layoutY="275.0" startX="-127.4000015258789" stroke="WHITE" />
+      <Label layoutX="61.0" layoutY="249.0" text="Duration" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="durationLabel" layoutX="164.0" layoutY="249.0" prefHeight="16.0" prefWidth="238.0" text="90 min" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="230.60000610351562" layoutX="173.0" layoutY="310.0" startX="-127.4000015258789" stroke="WHITE" />
+      <Label layoutX="61.0" layoutY="284.0" text="Director" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="directorLabel" layoutX="164.0" layoutY="284.0" prefHeight="16.0" prefWidth="237.0" text="Pierre de Ronsard" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="230.60000610351562" layoutX="173.0" layoutY="413.0" startX="-127.4000015258789" stroke="WHITE" />
+      <Label layoutX="61.0" layoutY="320.0" text="Actors" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="actorsLabel" alignment="TOP_LEFT" layoutX="163.0" layoutY="320.0" prefHeight="88.0" prefWidth="238.0" text="Liv Ullman, Kim Haugen, Svein Erik Brodal, Morten Borgersen" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="425.0" text="Description" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="163.0" layoutY="425.0" prefHeight="181.0" prefWidth="238.0" text="Based on a quite common image – a girl and a rose – Ronsard manages to create a graceful and sensual poem that glorifies the game of seduction. “Ode à Cassandre” by Pierre de Ronsard – written in the 16th century for King Charles IX’s court – is one of the most famous French poems. Since it’s rather short, many French kids learn in at school." textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Franklin Gothic Book" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="28.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
