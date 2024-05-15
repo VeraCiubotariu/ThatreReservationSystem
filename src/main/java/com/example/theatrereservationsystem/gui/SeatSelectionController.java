@@ -29,27 +29,6 @@ public class SeatSelectionController {
     }
 
     public void handleGoBack(ActionEvent actionEvent) {
-        try {
-            // create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/theatrereservationsystem/views/main-screen.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
-
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Welcome!");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            Scene scene = new Scene(root);
-            dialogStage.setScene(scene);
-
-            MainScreenController mainScreenController = loader.getController();
-            mainScreenController.setService(service, dialogStage);
-
-            dialogStage.show();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        PageLoader.loadMainScreen(service, stage);
     }
 }

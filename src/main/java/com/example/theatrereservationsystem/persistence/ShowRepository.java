@@ -2,6 +2,7 @@ package com.example.theatrereservationsystem.persistence;
 
 import com.example.theatrereservationsystem.domain.Administrator;
 import com.example.theatrereservationsystem.domain.Show;
+import com.example.theatrereservationsystem.domain.ShowDTO;
 import com.example.theatrereservationsystem.domain.ShowType;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
@@ -76,14 +77,62 @@ public class ShowRepository extends DBRepository {
         return shows;
     }
 
-    public List<Show> getAllPast(){
-        return getAllTemplate("select * from shows s " +
-                "inner join administrators a on s.admin_id = a.id where s.date < NOW()");
+    public List<Show> getAll(LocalDateTime start, LocalDateTime end){
+        List<Show> shows = new ArrayList<>();
+
+        try{
+            Connection connection = getConnection();
+            connection.setAutoCommit(false);
+            PreparedStatement statement = connection.prepareStatement("select * from shows s inner join" +
+                    " administrators a on s.admin_id = a.id where s.date >= ? and s.date <= ? " +
+                    "order by s.date");
+
+            statement.setTimestamp(1, Timestamp.valueOf(start));
+            statement.setTimestamp(2, Timestamp.valueOf(end));
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                shows.add(getShow(resultSet));
+            }
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return shows;
     }
 
-    public List<Show> getAllFuture(){
-        return getAllTemplate("select * from shows s " +
-                "inner join administrators a on s.admin_id = a.id where s.date >= NOW()");
+    public List<ShowDTO> getPastShows(LocalDateTime start){
+        List<ShowDTO> shows = new ArrayList<>();
+
+        try{
+            Connection connection = getConnection();
+            connection.setAutoCommit(false);
+            PreparedStatement statement = connection.prepareStatement("select s.id, s.date, s.name, s.actors, s.duration, s.genre, count(*) as sold_tickets from shows s inner join tickets t on s.id = t.show_id\n" +
+                    "group by (s.id, s.date, s.name, s.actors, s.duration, s.genre) " +
+                    "having s.date >= ?");
+
+            statement.setTimestamp(1, Timestamp.valueOf(start));
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                LocalDateTime date = resultSet.getTimestamp("date").toLocalDateTime();
+                String name = resultSet.getString("name");
+                String actors = resultSet.getString("actors");
+                ShowType genre = ShowType.valueOf(resultSet.getString("genre"));
+                int duration = resultSet.getInt("duration");
+                int showID = resultSet.getInt("id");
+                int soldTickets = resultSet.getInt("sold_tickets");
+
+                ShowDTO showDTO = new ShowDTO(soldTickets, actors, duration, genre, name, date);
+                showDTO.setId(showID);
+
+                shows.add(showDTO);
+            }
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return shows;
     }
 
     public Optional<Show> delete(int showID) {

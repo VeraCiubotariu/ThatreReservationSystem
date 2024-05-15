@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.AdminFutureShowsView">
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.gui.AdminFutureShowsController">
    <children>
       <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -13,45 +13,32 @@
          </image>
       </ImageView>
 
-      <ScrollPane layoutX="32.0" layoutY="140.0" prefHeight="424.0" prefWidth="139.0" style="-fx-background-color: black;">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-            <GridPane alignment="CENTER" prefHeight="451.0" prefWidth="123.0" style="-fx-alignment: center;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="180.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../a2ct_19890301-amadeus.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../images/143678.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                     <image>
-                        <Image url="@../images/143890.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </GridPane>
-         </content>
-      </ScrollPane>
+      <DatePicker fx:id="startDatePicker" layoutX="76.0" layoutY="92.0" prefHeight="26.0" prefWidth="94.0">
 
-      <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
+      </DatePicker>
+
+      <Label layoutX="34.0" layoutY="88.0" prefHeight="34.0" prefWidth="34.0" text="From" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Label>
+
+      <DatePicker fx:id="endDatePicker" layoutX="214.0" layoutY="92.0" prefHeight="26.0" prefWidth="94.0">
+
+      </DatePicker>
+
+      <Label layoutX="188.0" layoutY="88.0" prefHeight="34.0" prefWidth="94.0" text="To" textFill="WHITE">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Label>
+
+      <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="18.0" />
          </font>
       </Button>
-      <GridPane layoutX="189.0" layoutY="139.0" prefHeight="424.0" prefWidth="238.0">
+      <GridPane layoutX="188.0" layoutY="143.0" prefHeight="424.0" prefWidth="238.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="75.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.00001525878906" minWidth="10.0" prefWidth="163.0" />
@@ -73,7 +60,7 @@
                   <Font name="Franklin Gothic Demi" size="14.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="nameTextField" GridPane.columnIndex="1" />
             <Label text="Date" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font name="Franklin Gothic Demi" size="14.0" />
@@ -114,42 +101,42 @@
                   <Font name="Franklin Gothic Demi" size="14.0" />
                </font>
             </Label>
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Spinner GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" text="Upload Image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextArea prefHeight="59.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextArea prefHeight="92.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="timeComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Spinner fx:id="durationSpinner" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleImageUpload" prefHeight="26.0" prefWidth="115.0" text="Upload Image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="genreComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="directorTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextArea fx:id="actorsTextField" prefHeight="59.0" prefWidth="163.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextArea fx:id="descriptionTextArea" prefHeight="92.0" prefWidth="163.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>
       </GridPane>
-      <Button layoutX="171.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Delete" textFill="WHITE">
+      <Button layoutX="171.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="261.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Modify" textFill="WHITE">
+      <Button layoutX="261.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleModify" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Modify" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="351.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Add" textFill="WHITE">
+      <Button layoutX="351.0" layoutY="584.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #a1150b;" text="Add" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi Cond" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="40.0" layoutY="97.0" text="Time Frame" textFill="WHITE">
+
+      <Button layoutX="326.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #a1150b;" text="Search" textFill="WHITE">
          <font>
-            <Font name="Franklin Gothic Demi" size="14.0" />
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="messageLabel" layoutX="34.0" layoutY="127.0" textFill="RED">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="133.0" layoutY="92.0" prefWidth="150.0" />
-
-      <Button layoutX="326.0" layoutY="92.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #a1150b;" text="Search" textFill="WHITE">
-         <font>
-            <Font name="Franklin Gothic Demi Cond" size="14.0" />
-         </font>
-      </Button>
+      <ListView fx:id="showsListView" layoutX="27.0" layoutY="152.0" prefHeight="415.0" prefWidth="137.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>

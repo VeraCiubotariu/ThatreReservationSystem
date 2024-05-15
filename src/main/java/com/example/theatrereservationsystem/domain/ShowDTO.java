@@ -4,22 +4,45 @@ import javafx.scene.image.Image;
 
 import java.time.LocalDateTime;
 
-public class ShowDTO extends Show{
-    private int noTicketsSold;
+public class ShowDTO extends Entity<Integer> {
 
-    public ShowDTO(LocalDateTime date, String name, String actors, ShowType genre, String description, int duration,
-                   String director, Administrator admin, Image poster, int noTicketsSold) {
-        super(date, name, actors, genre, description, duration, director, admin, poster);
-        this.noTicketsSold = noTicketsSold;
+    private int soldTickets;
+    private String actors;
+    private int duration;
+    private ShowType genre;
+    private String name;
+    private LocalDateTime date;
+
+    public ShowDTO(int soldTickets, String actors, int duration, ShowType genre, String name, LocalDateTime date) {
+        this.soldTickets = soldTickets;
+        this.actors = actors;
+        this.duration = duration;
+        this.genre = genre;
+        this.name = name;
+        this.date = date;
     }
 
-    public ShowDTO(Show show, int noTicketsSold){
-        super(show.getDate(), show.getName(), show.getActors(), show.getGenre(), show.getDescription(),
-                show.getDuration(), show.getDirector(), show.getAdmin(), show.getPoster());
-        this.noTicketsSold = noTicketsSold;
+    public int getSoldTickets() {
+        return soldTickets;
     }
 
-    public int getNoTicketsSold() {
-        return noTicketsSold;
+    public String getActors() {
+        return actors;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public ShowType getGenre() {
+        return genre;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
     }
 }

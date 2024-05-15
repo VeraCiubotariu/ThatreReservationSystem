@@ -7,5 +7,7 @@ public enum ShowType {
     ROMANCE,
     STAND_UP,
     THRILLER,
-    HORROR
+    HORROR,
+    PSYCHOLOGICAL,
+    MUSICAL
 }

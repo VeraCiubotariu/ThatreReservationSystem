@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.FutureShowsView">
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;"  xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.gui.FutureShowsController">
 <children>
     <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="75.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
         <image>
@@ -13,7 +13,7 @@
         </image>
     </ImageView>
 
-    <DatePicker layoutX="75.0" layoutY="135.0" prefHeight="26.0" prefWidth="94.0">
+    <DatePicker fx:id="startDatePicker" layoutX="75.0" layoutY="135.0" prefHeight="26.0" prefWidth="94.0">
 
     </DatePicker>
 
@@ -23,7 +23,7 @@
         </font>
     </Label>
 
-    <DatePicker layoutX="206.0" layoutY="135.0" prefHeight="26.0" prefWidth="94.0">
+    <DatePicker fx:id="endDatePicker" layoutX="206.0" layoutY="135.0" prefHeight="26.0" prefWidth="94.0">
 
     </DatePicker>
 
@@ -33,65 +33,33 @@
         </font>
     </Label>
 
-    <Button layoutX="316.0" layoutY="133.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #a1150b;" text="Search" textFill="WHITE">
+    <Button layoutX="316.0" layoutY="133.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #a1150b;" text="Search" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Demi Cond" size="14.0" />
         </font>
     </Button>
 
-      <ScrollPane layoutX="32.0" layoutY="182.0" prefHeight="381.0" prefWidth="384.0" style="-fx-background-color: black;">
+      <ScrollPane fx:id="scrollPane" layoutX="32.0" layoutY="202.0" prefHeight="361.0" prefWidth="384.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-            <GridPane alignment="CENTER" prefHeight="500.0" prefWidth="359.0" style="-fx-alignment: center;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;"/>
+            <GridPane fx:id="showsGridPane" alignment="CENTER" prefWidth="359.0" style="-fx-alignment: center; -fx-background-color: black;">
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="180.0" />
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.00000000000003" minWidth="10.0" prefWidth="180.00000000000003" />
                 </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <children>
-                    <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../a2ct_19890301-amadeus.jpg" />
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                        <image>
-                            <Image url="@../df29fc63943cfbee38fffed658a7c17a.jpg" />
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                        <image>
-                            <Image url="@../images/143678.jpg" />
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                        <image>
-                            <Image url="@../images/2014HB7634-Phantom.jpg" />
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                        <image>
-                            <Image url="@../images/143890.jpg" />
-                        </image>
-                    </ImageView>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                        <image>
-                            <Image url="@../images/145803.jpg" />
-                        </image>
-                    </ImageView>
-                </children>
             </GridPane>
         </content>
       </ScrollPane>
 
-    <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
+    <Button layoutX="25.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleGoBack" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Go Back" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Demi Cond" size="18.0" />
         </font>
     </Button>
+      <Label fx:id="messageLabel" layoutX="32.0" layoutY="179.0" textFill="RED">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
+         </font>
+      </Label>
 </children>
 </AnchorPane>

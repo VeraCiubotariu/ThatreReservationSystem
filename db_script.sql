@@ -23,11 +23,8 @@ create table shows (
 )
 
 create table seats (
-	id int generated always as identity,
+	id varchar(10),
 	primary key(id),
-	row varchar(1) not null,
-	number int not null,
-	unique(row, number),
 	price float,
 	state varchar(20)
 )
@@ -46,7 +43,7 @@ create table tickets (
 
 create table tickets_seats (
 	ticket_id int,
-	seat_id int,
+	seat_id varchar(10),
 	constraint fk_ticket foreign key(ticket_id) references tickets(id),
 	constraint fk_seat foreign key(seat_id) references seats(id),
 	primary key(ticket_id, seat_id)

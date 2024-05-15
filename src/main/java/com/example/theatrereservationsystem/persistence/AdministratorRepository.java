@@ -28,6 +28,33 @@ public class AdministratorRepository extends DBRepository{
                 String lastName = resultSet.getString("last_name");
 
                 Administrator administrator = new Administrator(username, password, firstName, lastName);
+                administrator.setId(adminID);
+
+                return Optional.of(administrator);
+            }
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return Optional.empty();
+    }
+
+    public Optional<Administrator> get(String username){
+        try(Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement("select * from administrators where username=?"))
+        {
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                int adminID = resultSet.getInt("id");
+                String password = resultSet.getString("password");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+
+                Administrator administrator = new Administrator(username, password, firstName, lastName);
+                administrator.setId(adminID);
+
                 return Optional.of(administrator);
             }
         } catch (SQLException e){

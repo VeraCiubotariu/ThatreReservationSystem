@@ -70,28 +70,7 @@ public class MainScreenController {
     }
 
     private void loadSeatSelection(){
-        try {
-            // create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/theatrereservationsystem/views/seat_selection_view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
-
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Seat selection");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            Scene scene = new Scene(root);
-            dialogStage.setScene(scene);
-
-            SeatSelectionController seatSelectionController = loader.getController();
-            seatSelectionController.setService(service, dialogStage);
-
-            dialogStage.show();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        PageLoader.loadSeatSelection(service, stage);
     }
 
     public void handleShowInformation(MouseEvent mouseEvent) {
@@ -100,38 +79,15 @@ public class MainScreenController {
         }
 
         else{
-            loadShowInformation();
-        }
-    }
-
-    private void loadShowInformation() {
-        try {
-            // create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/theatrereservationsystem/views/show_information_view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
-
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Seat selection");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            Scene scene = new Scene(root);
-            dialogStage.setScene(scene);
-
-            ShowInformationController controller = loader.getController();
-            controller.setService(service, show, dialogStage);
-
-            dialogStage.show();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            PageLoader.loadShowInformation(service, show, stage);
         }
     }
 
     public void handleFutureShowsUser(MouseEvent mouseEvent) {
+        PageLoader.loadFutureShowsScreen(service, stage);
     }
 
     public void handleAdminLogin(MouseEvent mouseEvent) {
+        PageLoader.loadAdminLogin(service, stage);
     }
 }
