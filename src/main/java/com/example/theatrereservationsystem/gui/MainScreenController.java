@@ -70,7 +70,7 @@ public class MainScreenController {
     }
 
     private void loadSeatSelection(){
-        PageLoader.loadSeatSelection(service, stage);
+        PageLoader.loadSeatSelection(service, stage, show);
     }
 
     public void handleShowInformation(MouseEvent mouseEvent) {

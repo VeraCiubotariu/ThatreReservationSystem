@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.OrderSummaryView">
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.gui.OrderSummaryController">
 <children>
     <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="75.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
         <image>
@@ -20,7 +20,7 @@
             <Font name="Franklin Gothic Demi" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="164.0" layoutY="178.0" prefHeight="16.0" prefWidth="238.0" text="Sweetheart, let's see if the rose" textFill="WHITE">
+    <Label fx:id="showNameLabel" layoutX="164.0" layoutY="178.0" prefHeight="16.0" prefWidth="238.0" text="Sweetheart, let's see if the rose" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Book" size="14.0" />
         </font></Label>
@@ -30,7 +30,7 @@
             <Font name="Franklin Gothic Demi" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="164.0" layoutY="215.0" prefHeight="16.0" prefWidth="238.0" text="18 february 2024" textFill="WHITE">
+    <Label fx:id="showDateLabel" layoutX="164.0" layoutY="215.0" prefHeight="16.0" prefWidth="238.0" text="18 february 2024" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Book" size="14.0" />
         </font>
@@ -41,7 +41,7 @@
             <Font name="Franklin Gothic Demi" size="14.0" />
         </font>
     </Label>
-    <Label layoutX="164.0" layoutY="249.0" prefHeight="16.0" prefWidth="238.0" text="20:00" textFill="WHITE">
+    <Label fx:id="showTimeLabel" layoutX="164.0" layoutY="249.0" prefHeight="16.0" prefWidth="238.0" text="20:00" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Book" size="14.0" />
         </font>
@@ -52,7 +52,7 @@
             <Font name="Franklin Gothic Demi" size="14.0" />
         </font>
     </Label>
-    <Label alignment="TOP_LEFT" layoutX="164.0" layoutY="284.0" prefHeight="206.0" prefWidth="238.0" text="A2 - 12 euro&#13;D6 - 12 euro&#13;E5 - 12 euro" textFill="WHITE" wrapText="true">
+    <Label fx:id="seatsLabel" alignment="TOP_LEFT" layoutX="164.0" layoutY="284.0" prefHeight="206.0" prefWidth="238.0" text="A2 - 12 euro&#13;D6 - 12 euro&#13;E5 - 12 euro" textFill="WHITE" wrapText="true">
         <font>
             <Font name="Franklin Gothic Book" size="14.0" />
         </font>
@@ -62,17 +62,17 @@
             <Font name="Franklin Gothic Demi" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="164.0" layoutY="510.0" prefHeight="16.0" prefWidth="238.0" text="36 euro" textFill="WHITE">
+      <Label fx:id="totalPriceLabel" layoutX="164.0" layoutY="510.0" prefHeight="16.0" prefWidth="238.0" text="36 euro" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Book" size="14.0" />
          </font>
       </Label>
-    <Button layoutX="40.0" layoutY="560.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Previous" textFill="WHITE">
+    <Button layoutX="40.0" layoutY="560.0" mnemonicParsing="false" onAction="#handlePrevious" prefHeight="35.0" prefWidth="106.0" style="-fx-background-color: black;" text="&lt;  Previous" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Demi Cond" size="18.0" />
         </font>
     </Button>
-    <Button layoutX="262.0" layoutY="560.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" style="-fx-background-color: #a1150b;" text="Next  &gt;" textFill="WHITE">
+    <Button layoutX="262.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleNext" prefHeight="45.0" prefWidth="148.0" style="-fx-background-color: #a1150b;" text="Next  &gt;" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Demi Cond" size="18.0" />
         </font>

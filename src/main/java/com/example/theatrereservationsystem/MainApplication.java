@@ -45,9 +45,9 @@ public class MainApplication extends Application {
     }
 
     private void initView(Stage primaryStage) throws IOException {
-        /*Administrator admin = new Administrator("clau", "abcd1234", "Claudia",
+        Administrator admin = new Administrator("clau", "abcd1234", "Claudia",
                 "Popescu");
-        admin.setId(1);*/
+        admin.setId(1);
 
         /*Show show = new Show(LocalDateTime.of(2024, 5, 22, 20, 0), "Equus",
                 "Dai Bradley, Mel Churcher, Michael Jayston, Edward Jewesbury, Mary Macleod, Pip Miller," +
@@ -56,7 +56,7 @@ public class MainApplication extends Application {
                 "between devotion, myth and sexuality.", 120, "John Dexter", admin,
                 new Image("/com/example/theatrereservationsystem/images/Equus-1973a.jpg"));*/
 
-        /*Show show = new Show(LocalDateTime.of(2024, 10, 1, 18, 0),
+        Show show = new Show(LocalDateTime.of(2024, 5, 17, 20, 0),
                 "Hedda Gabler", "Richard Bovnoczki, Marius Manole, Ana Ciontea, Raluca Aprodu, " +
                 "Crina Semciuc, Alexandru Potocean", ShowType.DRAMA, "In Thomas Ostermeier's view, Hedda " +
                 "Gabler is a product of the digital age, a woman used to getting exactly what she wants. But this " +
@@ -64,7 +64,6 @@ public class MainApplication extends Application {
                 "needs. In Ostermeier's vision, the brilliant Hedda is a combination of femme fatale and spoiled " +
                 "brat who has grown bored of her new toys and amuses herself by playing dangerous games.", 115,
                 "Thomas Ostermeier", admin, new Image("/com/example/theatrereservationsystem/images/large_Afis_Hedda_3.jpg"));
-*/
         /*Show show = new Show(LocalDateTime.of(2022, 10, 21, 19, 0),
                 "The Titanic Orchestra", "Claudiu Bleont, Mihai Calin, Tania Popa, Mihai Constantin, " +
                 "Richard Bovnoczki", ShowType.COMEDY, "A philosophical and absurd comedy about the desire " +

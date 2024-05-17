@@ -40,7 +40,7 @@ public class TicketValidator implements Validator<Ticket> {
 
         Matcher matcher = pattern.matcher(phoneNumber);
         if(!matcher.matches()){
-            throw new ValidationException("Invalid client's email address!");
+            throw new ValidationException("Invalid client's phone number!");
         }
     }
 }

@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.views.CardPaymentView">
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.theatrereservationsystem.gui.CardPaymentController">
 <children>
     <ImageView fitHeight="119.0" fitWidth="298.0" layoutX="75.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../images/credit_card_information.png" />
         </image>
     </ImageView>
-      <TextField layoutX="80.0" layoutY="200.0" prefHeight="26.0" prefWidth="307.0" />
+      <TextField fx:id="cardNumberTextField" layoutX="80.0" layoutY="200.0" prefHeight="26.0" prefWidth="307.0" />
       <Label layoutX="80.0" layoutY="171.0" text="Card Number" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="80.0" layoutY="270.0" prefHeight="26.0" prefWidth="307.0" />
+      <TextField fx:id="cardHolderTextField" layoutX="80.0" layoutY="270.0" prefHeight="26.0" prefWidth="307.0" />
       <Label layoutX="80.0" layoutY="240.0" text="Card Holder" textFill="WHITE">
          <font>
             <Font name="Franklin Gothic Demi" size="14.0" />
@@ -34,14 +34,14 @@
             <Font name="Franklin Gothic Demi" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="237.0" layoutY="340.0" prefHeight="26.0" prefWidth="148.0" />
-      <DatePicker layoutX="80.0" layoutY="340.0" prefHeight="26.0" prefWidth="139.0" />
-    <Button layoutX="235.0" layoutY="536.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="148.0" style="-fx-background-color: #a1150b;" text="Pay Now" textFill="WHITE">
+      <TextField fx:id="cvvTextField" layoutX="237.0" layoutY="340.0" prefHeight="26.0" prefWidth="148.0" />
+      <DatePicker fx:id="expiryDatePicker" layoutX="80.0" layoutY="340.0" prefHeight="26.0" prefWidth="139.0" />
+    <Button layoutX="235.0" layoutY="536.0" mnemonicParsing="false" onAction="#handlePayNow" prefHeight="46.0" prefWidth="148.0" style="-fx-background-color: #a1150b;" text="Pay Now" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Demi Cond" size="18.0" />
         </font>
     </Button>
-    <Button layoutX="76.0" layoutY="541.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: black;" text="Cancel" textFill="WHITE">
+    <Button layoutX="76.0" layoutY="541.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: black;" text="Cancel" textFill="WHITE">
         <font>
             <Font name="Franklin Gothic Demi Cond" size="18.0" />
         </font>
@@ -59,6 +59,11 @@
       <Label alignment="TOP_LEFT" layoutX="79.0" layoutY="425.0" prefHeight="102.0" prefWidth="139.0" text="The CVV (Card Verification Value) is located on the back of your credit/debit card on the right side of the white signature strip." textFill="WHITE" wrapText="true">
          <font>
             <Font name="Franklin Gothic Book" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="messageLabel" layoutX="75.0" layoutY="510.0" textFill="RED">
+         <font>
+            <Font name="Franklin Gothic Demi Cond" size="14.0" />
          </font>
       </Label>
 </children>

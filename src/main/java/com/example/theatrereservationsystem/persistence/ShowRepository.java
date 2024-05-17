@@ -145,6 +145,8 @@ public class ShowRepository extends DBRepository {
 
         try {
             con = DriverManager.getConnection(url, username, password);
+            con.setAutoCommit(false);
+
             PreparedStatement statement = con.prepareStatement("delete from shows where id=?");
             statement.setInt(1, showID);
 

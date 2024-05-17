@@ -1,9 +1,6 @@
 package com.example.theatrereservationsystem.service;
 
-import com.example.theatrereservationsystem.domain.Administrator;
-import com.example.theatrereservationsystem.domain.Show;
-import com.example.theatrereservationsystem.domain.ShowDTO;
-import com.example.theatrereservationsystem.domain.TimeFrame;
+import com.example.theatrereservationsystem.domain.*;
 import com.example.theatrereservationsystem.domain.validation.ShowValidator;
 import com.example.theatrereservationsystem.domain.validation.TicketValidator;
 import com.example.theatrereservationsystem.persistence.AdministratorRepository;
@@ -129,5 +126,18 @@ public class TheatreService {
         }
 
         return showRepository.getAll(start, end);
+    }
+
+    public List<String> getAllOccupiedSeats(){
+        return seatRepository.getAllOccupiedIDs();
+    }
+
+    public Optional<Seat> getSeat(String seatID){
+        return seatRepository.get(seatID);
+    }
+
+    public Optional<Ticket> saveTicket(Ticket ticket){
+        ticketValidator.validate(ticket);
+        return ticketRepository.saveTicket(ticket);
     }
 }
