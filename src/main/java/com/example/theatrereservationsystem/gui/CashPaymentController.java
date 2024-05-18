@@ -1,6 +1,7 @@
 package com.example.theatrereservationsystem.gui;
 
 import com.example.theatrereservationsystem.domain.Ticket;
+import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.animation.PauseTransition;
 import javafx.stage.Stage;

@@ -5,6 +5,7 @@ import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.domain.Ticket;
 import com.example.theatrereservationsystem.domain.validation.TicketValidator;
 import com.example.theatrereservationsystem.domain.validation.ValidationException;
+import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;

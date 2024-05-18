@@ -4,6 +4,7 @@ import com.example.theatrereservationsystem.domain.Administrator;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.domain.ShowDTO;
 import com.example.theatrereservationsystem.domain.ShowType;
+import com.example.theatrereservationsystem.persistence.utils.ImageUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.paint.Color;
@@ -57,24 +58,6 @@ public class ShowRepository extends DBRepository {
         }
 
         return Optional.empty();
-    }
-
-    private List<Show> getAllTemplate(String sqlCommand){
-        List<Show> shows = new ArrayList<>();
-
-        try{
-            Connection connection = getConnection();
-            connection.setAutoCommit(false);
-            PreparedStatement statement = connection.prepareStatement(sqlCommand);
-            ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()){
-                shows.add(getShow(resultSet));
-            }
-        } catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-
-        return shows;
     }
 
     public List<Show> getAll(LocalDateTime start, LocalDateTime end){
@@ -280,38 +263,7 @@ public class ShowRepository extends DBRepository {
         statement.setString(5, show.getDescription());
         statement.setInt(6, show.getDuration());
         statement.setString(7, show.getDirector());
-        statement.setBlob(8, getBlobFromImage(show.getPoster()));
+        statement.setBlob(8, ImageUtils.getBlobFromImage(show.getPoster()));
         statement.setInt(9, show.getAdmin().getId());
-    }
-
-    private Blob getBlobFromImage(Image image) throws IOException, SQLException {
-        int width = (int) image.getWidth();
-        int height = (int) image.getHeight();
-
-        // Create a BufferedImage of the same size as the Image
-        java.awt.image.BufferedImage bufferedImage = new java.awt.image.BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
-
-        // Obtain the PixelReader from the Image
-        PixelReader pixelReader = image.getPixelReader();
-
-        // Write the pixels of the Image to the BufferedImage
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                // Get the color of the pixel
-                Color color = pixelReader.getColor(x, y);
-                // Convert the Color to a Java AWT Color
-                java.awt.Color awtColor = new java.awt.Color((float) color.getRed(), (float) color.getGreen(), (float) color.getBlue(), (float) color.getOpacity());
-                // Set the pixel in the BufferedImage
-                bufferedImage.setRGB(x, y, awtColor.getRGB());
-            }
-        }
-
-        // Write the BufferedImage to a byte array output stream
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        javax.imageio.ImageIO.write(bufferedImage, "png", outputStream); // You can also use "jpeg" for JPEG format
-        byte[] imageBytes = outputStream.toByteArray();
-
-        // Create a Blob from the byte array
-        return new javax.sql.rowset.serial.SerialBlob(imageBytes);
     }
 }

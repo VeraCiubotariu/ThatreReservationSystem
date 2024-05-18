@@ -1,18 +1,14 @@
 package com.example.theatrereservationsystem.gui;
 
 import com.example.theatrereservationsystem.domain.Administrator;
+import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Optional;
 
 public class AdminLoginController {

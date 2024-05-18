@@ -39,7 +39,7 @@ public class CreditCardValidator implements Validator<CreditCard> {
 
         Matcher matcher = pattern.matcher(cvv);
         if(!matcher.matches()){
-            throw new ValidationException("Invalid card number!");
+            throw new ValidationException("Invalid CVV!");
         }
     }
 }

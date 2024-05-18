@@ -2,6 +2,7 @@ package com.example.theatrereservationsystem.gui;
 
 import com.example.theatrereservationsystem.domain.Seat;
 import com.example.theatrereservationsystem.domain.Show;
+import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;

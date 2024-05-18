@@ -22,4 +22,6 @@ module com.example.theatrereservationsystem {
     exports com.example.theatrereservationsystem.service;
     exports com.example.theatrereservationsystem.domain.validation;
     opens com.example.theatrereservationsystem.domain.validation to javafx.fxml;
+    exports com.example.theatrereservationsystem.gui.utils;
+    opens com.example.theatrereservationsystem.gui.utils to javafx.fxml;
 }

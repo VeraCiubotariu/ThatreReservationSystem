@@ -3,6 +3,7 @@ package com.example.theatrereservationsystem.gui;
 import com.example.theatrereservationsystem.domain.Administrator;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.domain.ShowType;
+import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,11 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AdminFutureShowsController {
     public Label messageLabel;

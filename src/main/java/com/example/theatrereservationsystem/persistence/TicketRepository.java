@@ -70,20 +70,7 @@ public class TicketRepository extends DBRepository{
         }
     }
 
-    public int saveTicketSeat(int ticketID, int seatID) {
-        try(Connection con = DriverManager.getConnection(url, username, password);
-            PreparedStatement statement = con.prepareStatement("insert into tickets_seats(ticket_id, seat_id) " +
-                    "values (?,?)")){
-            statement.setInt(1, ticketID);
-            statement.setInt(2, seatID);
-
-            return statement.executeUpdate();
-        } catch(Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public Integer getLastID(Connection con) throws SQLException {
+    private Integer getLastID(Connection con) throws SQLException {
         PreparedStatement statement = con.prepareStatement("select id from tickets order by id desc limit 1");
         ResultSet resultSet = statement.executeQuery();
 

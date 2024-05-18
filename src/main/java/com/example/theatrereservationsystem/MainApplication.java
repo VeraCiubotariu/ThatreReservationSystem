@@ -56,7 +56,7 @@ public class MainApplication extends Application {
                 "between devotion, myth and sexuality.", 120, "John Dexter", admin,
                 new Image("/com/example/theatrereservationsystem/images/Equus-1973a.jpg"));*/
 
-        Show show = new Show(LocalDateTime.of(2024, 5, 17, 20, 0),
+        Show show = new Show(LocalDateTime.of(2024, 5, 18, 20, 0),
                 "Hedda Gabler", "Richard Bovnoczki, Marius Manole, Ana Ciontea, Raluca Aprodu, " +
                 "Crina Semciuc, Alexandru Potocean", ShowType.DRAMA, "In Thomas Ostermeier's view, Hedda " +
                 "Gabler is a product of the digital age, a woman used to getting exactly what she wants. But this " +

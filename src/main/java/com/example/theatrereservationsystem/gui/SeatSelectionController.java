@@ -2,6 +2,7 @@ package com.example.theatrereservationsystem.gui;
 
 import com.example.theatrereservationsystem.domain.Seat;
 import com.example.theatrereservationsystem.domain.Show;
+import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -36,7 +36,6 @@ public class SeatSelectionController {
     public void handleSeatSelection(MouseEvent actionEvent){
         ImageView clickedSeat = (ImageView) actionEvent.getSource();
         Image freeSeat = new Image("/com/example/theatrereservationsystem/images/free_seat.png");
-        Image occupiedSeat = new Image("/com/example/theatrereservationsystem/images/occupied_seat.png");
         Image selectedSeat = new Image("/com/example/theatrereservationsystem/images/selected_seat.png");
 
         String[] imgComp = clickedSeat.getImage().getUrl().split("/");
@@ -51,8 +50,6 @@ public class SeatSelectionController {
             clickedSeat.setImage(freeSeat);
             selectedSeats.remove(clickedSeat.getId());
         }
-
-        System.out.println(selectedSeats);
     }
 
     public void setService(TheatreService service, Stage stage, Show show){

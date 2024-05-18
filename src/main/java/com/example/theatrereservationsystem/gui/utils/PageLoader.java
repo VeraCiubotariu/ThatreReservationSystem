@@ -1,9 +1,10 @@
-package com.example.theatrereservationsystem.gui;
+package com.example.theatrereservationsystem.gui.utils;
 
 import com.example.theatrereservationsystem.domain.Administrator;
 import com.example.theatrereservationsystem.domain.Seat;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.domain.Ticket;
+import com.example.theatrereservationsystem.gui.*;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
