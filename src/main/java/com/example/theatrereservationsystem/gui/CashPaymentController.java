@@ -1,13 +1,16 @@
 package com.example.theatrereservationsystem.gui;
 
+import com.example.theatrereservationsystem.domain.Seat;
 import com.example.theatrereservationsystem.domain.Ticket;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.animation.PauseTransition;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class CashPaymentController {
+    public Label amountLabel;
     private TheatreService service;
     private Stage stage;
     private Ticket ticket;
@@ -21,6 +24,8 @@ public class CashPaymentController {
     }
 
     private void initView() {
+        amountLabel.setText(getPrice() + " euros");
+
         try{
             service.saveTicket(ticket);
         } catch (Exception ex){
@@ -34,5 +39,14 @@ public class CashPaymentController {
         });
 
         pause.play();
+    }
+
+    private float getPrice(){
+        float price = 0;
+        for(Seat seat: ticket.getSeats()){
+            price += seat.getPrice();
+        }
+
+        return price;
     }
 }

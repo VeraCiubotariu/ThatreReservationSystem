@@ -4,11 +4,10 @@ import com.example.theatrereservationsystem.domain.Seat;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.util.List;
+import java.util.Set;
 
 public class OrderSummaryController {
     public Label showNameLabel;
@@ -20,17 +19,17 @@ public class OrderSummaryController {
     private TheatreService service;
     private Stage stage;
     private Show show;
-    private List<Seat> seats;
+    private Set<Seat> seats;
 
-    public void handlePrevious(ActionEvent actionEvent) {
+    public void handlePrevious() {
         PageLoader.loadSeatSelection(service, stage, show);
     }
 
-    public void handleNext(ActionEvent actionEvent) {
+    public void handleNext() {
         PageLoader.loadOrderInformationScreen(service, stage, show, seats);
     }
 
-    public void setService(TheatreService service, Stage stage, Show show, List<Seat> seats) {
+    public void setService(TheatreService service, Stage stage, Show show, Set<Seat> seats) {
         this.seats = seats;
         this.service = service;
         this.show = show;
@@ -45,14 +44,14 @@ public class OrderSummaryController {
         showDateLabel.setText(show.getDate().toLocalDate().toString());
 
         float totalPrice = 0;
-        String seatInfo = "";
+        StringBuilder seatInfo = new StringBuilder();
 
         for(Seat seat:seats){
             totalPrice += seat.getPrice();
-            seatInfo += seat.getId() + " - " + String.valueOf(seat.getPrice()) + "\n";
+            seatInfo.append(seat.getId()).append(" - ").append(seat.getPrice()).append("\n");
         }
 
-        seatsLabel.setText(seatInfo);
+        seatsLabel.setText(seatInfo.toString());
         totalPriceLabel.setText(String.valueOf(totalPrice));
     }
 }

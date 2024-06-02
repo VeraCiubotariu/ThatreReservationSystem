@@ -12,7 +12,7 @@
             <Image url="@../images/cash_payment.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="88.0" layoutY="352.0" prefHeight="54.0" prefWidth="290.0" text="36 euro" textAlignment="CENTER" textFill="#a1150b">
+      <Label fx:id="amountLabel" alignment="CENTER" layoutX="14.0" layoutY="352.0" prefHeight="56.0" prefWidth="426.0" text="36 euro" textAlignment="CENTER" textFill="#a1150b">
          <font>
             <Font name="Franklin Gothic Heavy" size="48.0" />
          </font>

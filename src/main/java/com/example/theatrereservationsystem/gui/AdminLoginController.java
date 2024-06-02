@@ -3,7 +3,6 @@ package com.example.theatrereservationsystem.gui;
 import com.example.theatrereservationsystem.domain.Administrator;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -23,11 +22,11 @@ public class AdminLoginController {
         this.stage = stage;
     }
 
-    public void handleGoBack(ActionEvent actionEvent) {
+    public void handleGoBack() {
         PageLoader.loadMainScreen(service, stage);
     }
 
-    public void handleLogin(ActionEvent actionEvent) {
+    public void handleLogin() {
         String username = usernameTextField.getText();
         String password = passwordField.getText();
 

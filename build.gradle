@@ -1,9 +1,7 @@
 plugins {
   id 'java'
   id 'application'
-  id 'org.javamodularity.moduleplugin' version '1.8.12'
   id 'org.openjfx.javafxplugin' version '0.0.13'
-  id 'org.beryx.jlink' version '2.25.0'
 }
 
 group 'com.example'
@@ -25,36 +23,35 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-  mainModule = 'com.example.theatrereservationsystem'
-  mainClass = 'com.example.theatrereservationsystem.HelloApplication'
+  mainClass = 'com.example.theatrereservationsystem.MainApplication'
 }
 
 javafx {
-  version = '18.0.2'
+  //version = '18.0.2'
   modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
-
+  // JUnit for testing
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
-  // https://mvnrepository.com/artifact/org.postgresql/postgresql
-  implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'
+  // PostgreSQL JDBC Driver
+  implementation 'org.postgresql:postgresql:42.7.3'
+
+  // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
+  implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+  // Hibernate Validator
+  implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+  implementation 'org.glassfish:jakarta.el:4.0.2'
+
+  // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-community-dialects
+  implementation 'org.hibernate.orm:hibernate-community-dialects:6.4.4.Final'
 
 }
+
 
 test {
-useJUnitPlatform()}
-
-jlink {
-  imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-  options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-  launcher {
-    name = 'app'
-  }
-}
-
-jlinkZip {
-  group = 'distribution'
+  useJUnitPlatform()
 }

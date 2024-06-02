@@ -13,7 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 
 public class PageLoader {
     public static void loadMainScreen(TheatreService service, Stage stage){
@@ -35,7 +35,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -44,7 +44,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/admin-menu-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -60,7 +60,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -69,7 +69,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/admin-login-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -85,7 +85,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -94,7 +94,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/seat_selection_view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -110,7 +110,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -119,7 +119,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/show_information_view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -135,7 +135,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -144,7 +144,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/future-shows-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -160,7 +160,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -169,7 +169,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/admin-future-shows-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -185,7 +185,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -194,7 +194,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/past-shows-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -210,16 +210,16 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
-    public static void loadOrderSummaryScreen(TheatreService service, Stage stage, Show show, List<Seat> seats){
+    public static void loadOrderSummaryScreen(TheatreService service, Stage stage, Show show, Set<Seat> seats){
         try {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/order-summary-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -235,16 +235,16 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
-    public static void loadOrderInformationScreen(TheatreService service, Stage stage, Show show, List<Seat> seats){
+    public static void loadOrderInformationScreen(TheatreService service, Stage stage, Show show, Set<Seat> seats){
         try {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/order-information-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -260,7 +260,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -269,7 +269,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/cash-payment-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -285,7 +285,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -294,7 +294,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/card-payment-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -310,7 +310,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -319,7 +319,7 @@ public class PageLoader {
             // create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(PageLoader.class.getResource("/com/example/theatrereservationsystem/views/order-complete-view.fxml"));
-            AnchorPane root = (AnchorPane) loader.load();
+            AnchorPane root = loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -335,7 +335,7 @@ public class PageLoader {
             stage.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }

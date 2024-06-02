@@ -6,7 +6,6 @@ import com.example.theatrereservationsystem.domain.validation.CreditCardValidato
 import com.example.theatrereservationsystem.domain.validation.ValidationException;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,7 +24,7 @@ public class CardPaymentController {
     private Stage stage;
     private Ticket ticket;
 
-    public void handlePayNow(ActionEvent actionEvent) {
+    public void handlePayNow() {
         String holder = cardHolderTextField.getText();
         String number = cardNumberTextField.getText();
         String cvv = cvvTextField.getText();
@@ -50,7 +49,7 @@ public class CardPaymentController {
         PageLoader.loadOrderCompleteScreen(service, stage);
     }
 
-    public void handleCancel(ActionEvent actionEvent) {
+    public void handleCancel() {
         PageLoader.loadMainScreen(service, stage);
     }
 

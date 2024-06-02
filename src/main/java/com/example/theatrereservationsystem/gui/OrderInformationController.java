@@ -7,14 +7,13 @@ import com.example.theatrereservationsystem.domain.validation.TicketValidator;
 import com.example.theatrereservationsystem.domain.validation.ValidationException;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 public class OrderInformationController {
     public TextField firstNameTextField;
@@ -28,14 +27,14 @@ public class OrderInformationController {
     private TheatreService service;
     private Stage stage;
     private Show show;
-    private List<Seat> seats;
+    private Set<Seat> seats;
     private TicketValidator ticketValidator;
 
-    public void handlePrevious(ActionEvent actionEvent) {
+    public void handlePrevious() {
         PageLoader.loadOrderSummaryScreen(service, stage, show, seats);
     }
 
-    public void handleNext(ActionEvent actionEvent) {
+    public void handleNext() {
         if(cardCheckBox.isSelected() && cashCheckBox.isSelected()){
             messageLabel.setText("Please select a single payment method.");
             return;
@@ -70,7 +69,7 @@ public class OrderInformationController {
         }
     }
 
-    public void setService(TheatreService service, Stage stage, Show show, List<Seat> seats) {
+    public void setService(TheatreService service, Stage stage, Show show, Set<Seat> seats) {
         this.seats = seats;
         this.service = service;
         this.show = show;

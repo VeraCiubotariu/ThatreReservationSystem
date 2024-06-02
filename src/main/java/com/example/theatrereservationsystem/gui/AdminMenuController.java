@@ -3,7 +3,6 @@ package com.example.theatrereservationsystem.gui;
 import com.example.theatrereservationsystem.domain.Administrator;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
 public class AdminMenuController {
@@ -17,15 +16,15 @@ public class AdminMenuController {
         this.stage = stage;
     }
 
-    public void handlePastShows(ActionEvent actionEvent) {
+    public void handlePastShows() {
         PageLoader.loadPastShowsScreen(service, admin, stage);
     }
 
-    public void handleFutureShows(ActionEvent actionEvent) {
+    public void handleFutureShows() {
         PageLoader.loadAdminFutureShowsScreen(service, admin, stage);
     }
 
-    public void handleExit(ActionEvent actionEvent) {
+    public void handleExit() {
         PageLoader.loadMainScreen(service, stage);
     }
 }

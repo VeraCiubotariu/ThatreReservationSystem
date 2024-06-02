@@ -3,7 +3,6 @@ package com.example.theatrereservationsystem.gui;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -13,9 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FutureShowsController {
@@ -37,11 +34,11 @@ public class FutureShowsController {
     public void initialize(){
     }
 
-    public void handleGoBack(ActionEvent actionEvent) {
+    public void handleGoBack() {
         PageLoader.loadMainScreen(service, stage);
     }
 
-    public void handleSearch(ActionEvent actionEvent) {
+    public void handleSearch() {
         LocalDate start = startDatePicker.getValue();
         LocalDate end = endDatePicker.getValue();
 
@@ -55,7 +52,7 @@ public class FutureShowsController {
             return;
         }
 
-        List<Show> shows = new ArrayList<>();
+        List<Show> shows;
 
         try{
             shows = service.getFutureShows(start.atStartOfDay(), end.atTime(23, 59));
@@ -82,7 +79,7 @@ public class FutureShowsController {
     }
 
     private VBox createCell(Show show){
-        ImageView imageView = new ImageView(show.getPoster());
+        ImageView imageView = new ImageView(show.getPosterImage());
         imageView.setFitHeight(150);
         imageView.setFitWidth(200);
         imageView.setPickOnBounds(true);

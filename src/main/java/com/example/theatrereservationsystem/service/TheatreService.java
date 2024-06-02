@@ -3,37 +3,38 @@ package com.example.theatrereservationsystem.service;
 import com.example.theatrereservationsystem.domain.*;
 import com.example.theatrereservationsystem.domain.validation.ShowValidator;
 import com.example.theatrereservationsystem.domain.validation.TicketValidator;
-import com.example.theatrereservationsystem.persistence.AdministratorRepository;
-import com.example.theatrereservationsystem.persistence.SeatRepository;
-import com.example.theatrereservationsystem.persistence.ShowRepository;
-import com.example.theatrereservationsystem.persistence.TicketRepository;
+import com.example.theatrereservationsystem.persistence.hibernate.AdministratorRepository;
+import com.example.theatrereservationsystem.persistence.hibernate.SeatRepository;
+import com.example.theatrereservationsystem.persistence.hibernate.ShowRepository;
+import com.example.theatrereservationsystem.persistence.hibernate.TicketRepository;
+import com.example.theatrereservationsystem.service.observer.Observable;
+import com.example.theatrereservationsystem.service.observer.Observer;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAmount;
-import java.time.temporal.TemporalUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class TheatreService {
-    private AdministratorRepository administratorRepository;
-    private SeatRepository seatRepository;
-    private ShowRepository showRepository;
-    private TicketRepository ticketRepository;
-    private ShowValidator showValidator;
-    private TicketValidator ticketValidator;
+public class TheatreService implements Observable {
+    private final AdministratorRepository administratorRepository;
+    private final SeatRepository seatRepository;
+    private final ShowRepository showRepository;
+    private final TicketRepository ticketRepository;
+    private final ShowValidator showValidator;
+    private final TicketValidator ticketValidator;
+    private final List<Observer> observers = new ArrayList<>();
 
     public TheatreService(AdministratorRepository administratorRepository,
                           SeatRepository seatRepository, ShowRepository showRepository,
                           TicketRepository ticketRepository, ShowValidator showValidator,
                           TicketValidator ticketValidator) {
-        this.administratorRepository = administratorRepository;
         this.seatRepository = seatRepository;
         this.showRepository = showRepository;
         this.ticketRepository = ticketRepository;
         this.showValidator = showValidator;
         this.ticketValidator = ticketValidator;
+        this.administratorRepository = administratorRepository;
     }
 
     public Optional<Show> getTodayShow(){
@@ -46,7 +47,38 @@ public class TheatreService {
         }
 
         showValidator.validate(show);
-        return showRepository.save(show);
+        Optional<Show> saved = showRepository.save(show);
+
+        if(saved.isEmpty()){
+            notifyObservers();
+        }
+
+        return saved;
+    }
+
+    public Optional<Show> updateShow(Show show){
+        if(show == null){
+            throw new IllegalArgumentException("The show cannot be null");
+        }
+
+        showValidator.validate(show);
+        Optional<Show> updated = showRepository.update(show);
+
+        if(updated.isEmpty()){
+            notifyObservers();
+        }
+
+        return updated;
+    }
+
+    public Optional<Show> deleteShow(int showID){
+        Optional<Show> deleted = showRepository.delete(showID);
+
+        if(deleted.isPresent()){
+            notifyObservers();
+        }
+
+        return deleted;
     }
 
     public Optional<Administrator> login(String username, String password){
@@ -78,21 +110,11 @@ public class TheatreService {
         LocalDateTime now = LocalDateTime.now();
 
         switch (timeFrame){
-            case LAST_WEEK -> {
-                start = now.minusWeeks(1);
-            }
-            case LAST_MONTH -> {
-                start = now.minusMonths(1);
-            }
-            case LAST_6_MONTHS -> {
-                start = now.minusMonths(6);
-            }
-            case LAST_YEAR -> {
-                start = now.minusYears(1);
-            }
-            case ALL_TIME -> {
-                start = LocalDateTime.of(0, 1, 1, 0, 0);
-            }
+            case LAST_WEEK -> start = now.minusWeeks(1);
+            case LAST_MONTH -> start = now.minusMonths(1);
+            case LAST_6_MONTHS -> start = now.minusMonths(6);
+            case LAST_YEAR -> start = now.minusYears(1);
+            case ALL_TIME -> start = LocalDateTime.of(0, 1, 1, 0, 0);
         }
 
         return showRepository.getPastShows(start);
@@ -138,6 +160,28 @@ public class TheatreService {
 
     public Optional<Ticket> saveTicket(Ticket ticket){
         ticketValidator.validate(ticket);
-        return ticketRepository.saveTicket(ticket);
+        Optional<Ticket> response = ticketRepository.saveTicket(ticket);
+
+        if(response.isEmpty()){
+            System.out.println("Notifying observers...");
+            notifyObservers();
+        }
+
+        return response;
+    }
+
+    @Override
+    public void addObserver(Observer e) {
+        observers.add(e);
+    }
+
+    @Override
+    public void removeObserver(Observer e) {
+        observers.remove(e);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observers.forEach(Observer::update);
     }
 }

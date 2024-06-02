@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
@@ -33,7 +32,7 @@ public class MainScreenController {
             Optional<Show> todayShow = service.getTodayShow();
             if(todayShow.isPresent()){
                 show = todayShow.get();
-                posterImageView.setImage(show.getPoster());
+                posterImageView.setImage(show.getPosterImage());
             }
 
             else{
@@ -51,7 +50,7 @@ public class MainScreenController {
         setPosterImage();
     }
 
-    public void handleReservation(MouseEvent mouseEvent) {
+    public void handleReservation() {
         if(show == null){
             messageLabel.setText("There isn't any show for today!");
         }
@@ -69,7 +68,7 @@ public class MainScreenController {
         PageLoader.loadSeatSelection(service, stage, show);
     }
 
-    public void handleShowInformation(MouseEvent mouseEvent) {
+    public void handleShowInformation() {
         if(show == null){
             messageLabel.setText("There isn't any show for today!");
         }
@@ -79,11 +78,11 @@ public class MainScreenController {
         }
     }
 
-    public void handleFutureShowsUser(MouseEvent mouseEvent) {
+    public void handleFutureShowsUser() {
         PageLoader.loadFutureShowsScreen(service, stage);
     }
 
-    public void handleAdminLogin(MouseEvent mouseEvent) {
+    public void handleAdminLogin() {
         PageLoader.loadAdminLogin(service, stage);
     }
 }

@@ -4,7 +4,7 @@ import com.example.theatrereservationsystem.domain.Seat;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
+import com.example.theatrereservationsystem.service.observer.Observer;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -14,23 +14,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
-public class SeatSelectionController {
+public class SeatSelectionController implements Observer {
     public Label messageLabel;
     public GridPane seatsGridPane;
     private TheatreService service;
     private Stage stage;
     private Show show;
-    private List<String> selectedSeats = new ArrayList<>();
-
-    @FXML
-    public void initialize(){
-
-    }
+    private final List<String> selectedSeats = new ArrayList<>();
 
     @FXML
     public void handleSeatSelection(MouseEvent actionEvent){
@@ -56,12 +48,12 @@ public class SeatSelectionController {
         this.service = service;
         this.stage = stage;
         this.show = show;
+        this.service.addObserver(this);
 
-        initSeats();
+        initSeats(service.getAllOccupiedSeats());
     }
 
-    private void initSeats() {
-        List<String> occupiedSeats = service.getAllOccupiedSeats();
+    private void initSeats(List<String> occupiedSeats) {
         Image occupiedSeat = new Image("/com/example/theatrereservationsystem/images/occupied_seat.png");
 
         for(Node node: seatsGridPane.getChildren()){
@@ -75,13 +67,13 @@ public class SeatSelectionController {
         }
     }
 
-    public void handleNext(ActionEvent actionEvent) {
+    public void handleNext() {
         if(selectedSeats.isEmpty()){
             messageLabel.setText("Please select your desired seat(s).");
             return;
         }
 
-        List<Seat> desiredSeats = new ArrayList<>();
+        Set<Seat> desiredSeats = new HashSet<>();
 
         for(String seatID: selectedSeats){
             Optional<Seat> seat = service.getSeat(seatID);
@@ -92,7 +84,12 @@ public class SeatSelectionController {
         PageLoader.loadOrderSummaryScreen(service, stage, show, desiredSeats);
     }
 
-    public void handleGoBack(ActionEvent actionEvent) {
+    public void handleGoBack() {
         PageLoader.loadMainScreen(service, stage);
+    }
+
+    @Override
+    public void update() {
+        initSeats(service.getAllOccupiedSeats());
     }
 }

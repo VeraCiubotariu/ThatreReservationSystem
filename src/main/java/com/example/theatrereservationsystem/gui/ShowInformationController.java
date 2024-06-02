@@ -3,17 +3,8 @@ package com.example.theatrereservationsystem.gui;
 import com.example.theatrereservationsystem.domain.Show;
 import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.io.IOException;
 
 public class ShowInformationController {
     public Label descriptionLabel;
@@ -42,7 +33,7 @@ public class ShowInformationController {
         descriptionLabel.setText(show.getDescription());
     }
 
-    public void handleGoBack(ActionEvent actionEvent) {
+    public void handleGoBack() {
         PageLoader.loadMainScreen(service, stage);
     }
 }

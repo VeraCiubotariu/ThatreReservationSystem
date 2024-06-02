@@ -8,7 +8,6 @@ import com.example.theatrereservationsystem.gui.utils.PageLoader;
 import com.example.theatrereservationsystem.service.TheatreService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -32,8 +31,8 @@ public class PastShowsController {
     public Label messageLabel;
     public Label totalTicketsLabel;
 
-    private ObservableList<ShowDTO> showsModel = FXCollections.observableArrayList();
-    private ObservableList<TimeFrame> timeFrameModel = FXCollections.observableArrayList();
+    private final ObservableList<ShowDTO> showsModel = FXCollections.observableArrayList();
+    private final ObservableList<TimeFrame> timeFrameModel = FXCollections.observableArrayList();
 
     private TheatreService service;
     private Stage stage;
@@ -61,11 +60,11 @@ public class PastShowsController {
         timeFrameModel.setAll(TimeFrame.values());
     }
 
-    public void handleGoBack(ActionEvent actionEvent) {
+    public void handleGoBack() {
         PageLoader.loadAdminMenu(service, admin, stage);
     }
 
-    public void handleSearch(ActionEvent actionEvent) {
+    public void handleSearch() {
         TimeFrame selectedTimeFrame = timeFrameComboBox.getValue();
 
         if (selectedTimeFrame == null){

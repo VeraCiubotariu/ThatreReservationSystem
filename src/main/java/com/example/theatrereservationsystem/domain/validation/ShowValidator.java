@@ -30,5 +30,9 @@ public class ShowValidator implements Validator<Show> {
         if(entity.getDuration() <= 0){
             throw new ValidationException("Duration must be grater than 0!");
         }
+
+        if(entity.getPoster() == null){
+            throw new ValidationException("Invalid poster image!");
+        }
     }
 }

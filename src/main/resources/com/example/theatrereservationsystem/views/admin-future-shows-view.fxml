@@ -104,7 +104,7 @@
             <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="timeComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Spinner fx:id="durationSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleImageUpload" prefHeight="26.0" prefWidth="115.0" text="Upload Image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="imageUploadButton" mnemonicParsing="false" onAction="#handleImageUpload" prefHeight="26.0" prefWidth="115.0" text="Upload Image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ComboBox fx:id="genreComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="directorTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextArea fx:id="actorsTextField" prefHeight="59.0" prefWidth="163.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
